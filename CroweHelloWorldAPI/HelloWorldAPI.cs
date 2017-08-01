@@ -47,6 +47,7 @@ namespace CroweHelloWorldAPI
         }
         public void WriteMessage()
         {
+            Console.WriteLine("Console Output");
             Console.WriteLine(ConsoleMessage);
         }
         public string ReturnMessage()
@@ -68,6 +69,7 @@ namespace CroweHelloWorldAPI
         }
         public void WriteMessage()
         {
+            Console.WriteLine("Database Output");
             Console.WriteLine(ConsoleMessage);
         }
         public string ReturnMessage()
