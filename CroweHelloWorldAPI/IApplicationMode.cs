@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CroweHelloWorldAPI
 {
-    internal interface IApplicationMode
+    public interface IApplicationMode
     {
         void SetMessage(string Message);
         void WriteMessage();

@@ -6,9 +6,40 @@ using System.Threading.Tasks;
 
 namespace CroweHelloWorldAPI
 {
+    public class HelloWorldApp
+    {
+        IApplicationMode mode;
+
+        public void SetMode(IApplicationMode mode)
+        {
+            this.mode = mode;
+        }
+
+        public IApplicationMode GetMode()
+        {
+            return mode;
+        }
+
+        public void SetMessage(string message)
+        {
+            mode.SetMessage(message);
+        }
+        public string ReturnMessage()
+        {
+            return mode.ReturnMessage();
+        }
+        public void WriteMessage()
+        {
+            mode.WriteMessage();
+        }
+    }
+
+    /// <summary>
+    /// Inherits from IApplicationMode. Will execute by default or if ApplicationMode setting in AppSettings is 'Console'
+    /// </summary>
     public class ConsoleMode : IApplicationMode
     {
-        public string ConsoleMessage;
+        private string ConsoleMessage;
 
         public void SetMessage(string message)
         {
@@ -24,9 +55,12 @@ namespace CroweHelloWorldAPI
         }
     }
 
+    /// <summary>
+    /// Inherits from IApplicationMode. Will execute if ApplicationMode setting in AppSettings is 'Database'
+    /// </summary>
     public class DatabaseMode : IApplicationMode
     {
-        public string ConsoleMessage;
+        private string ConsoleMessage;
 
         public void SetMessage(string message)
         {
@@ -41,10 +75,4 @@ namespace CroweHelloWorldAPI
             return ConsoleMessage;
         }
     }
-
-    public class ApplicationSetting
-    {
-
-    }
-
 }
